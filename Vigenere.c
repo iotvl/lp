@@ -20,10 +20,9 @@ int main(int argc, string argv[])
 		}
     }
     string s = GetString();
-    int j=0;
     for (int i=0, n=strlen(s); i<n; i++)
     {
-        int o=j%length;
+        int o=i%length;
         if (s[i]>='A' && s[i]<='Z') 
         {
             if(key[o]>='A' && key[o]<='Z')
@@ -50,7 +49,6 @@ int main(int argc, string argv[])
                s[i]=(s[i]+97);
             }
         }
-        j++;
     }
     printf("%s\n",s);
 }
