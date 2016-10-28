@@ -4,26 +4,26 @@
 
 int main(int argc, string argv[])
 {
-    int length ,j,o;
     if (argc !=2)
-    {
+	{
         printf("Usage: ./asciimath key");
         return 1;
     }
     string key = argv[1];
-    for (j=0, length=strlen(key); j<length; j++)
+	int length = strlen(key);
+    for (int i=0; i<length; i++)
     {
-        if (key[j]<'A' || key[j]>'z') 
+        if (key[i]<'A' || key[i]>'z') 
 		{ 
 			printf("Usage: ./asciimath key"); 
 			return 1;
 		}
     }
     string s = GetString();
-    j=0;
+    int j=0;
     for (int i=0, n=strlen(s); i<n; i++)
     {
-        o=j%length;
+        int o=j%length;
         if (s[i]>='A' && s[i]<='Z') 
         {
             if(key[o]>='A' && key[o]<='Z')
