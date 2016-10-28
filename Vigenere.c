@@ -30,13 +30,11 @@ int main(int argc, string argv[])
             {
                 s[i]=(s[i]-65+key[o]-65)%26;
                 s[i]=(s[i]+65);
-                j=j+1;
             }
             else
             {
               s[i]=(s[i]-65+key[o]-97)%26;
               s[i]=(s[i]+65);
-              j=j+1;  
             }
         }
         else if (s[i]>='a' && s[i]<='z') 
@@ -45,15 +43,14 @@ int main(int argc, string argv[])
             {
                s[i]=(s[i]-97+key[o]-65)%26;
                s[i]=(s[i]+97);
-               j=j+1;
             }
             else
             {
                s[i]=(s[i]-97+key[o]-97)%26;
                s[i]=(s[i]+97);
-               j=j+1;
             }
         }
+        j++;
     }
     printf("%s\n",s);
 }
