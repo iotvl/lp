@@ -23,29 +23,29 @@ int main(int argc, string argv[])
 	for (int index=0, stringLength=strlen(String); index<stringLength; index++) //encrypt characters
 	{
 		int modulo=index%keyLength;
-		if (String[index]>='A' && String[index]<='Z') 
+		if (String[index]>='A' && String[index]<='Z') //encrypt big String characters
 		{
-			if(key[modulo]>='A' && key[modulo]<='Z')
+			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt big key characters
 			{
-				String[index]=(String[index]-'A'+key[modulo]-'A')%26;
+				String[index]=(String[index]-'A'+key[modulo]-'A')%('Z'-'A');
 				String[index]=String[index]+'A';
 			}
-			else
+			else //encrypt small key characters
 			{
-				String[index]=(String[index]-'A'+key[modulo]-'a')%26;
+				String[index]=(String[index]-'A'+key[modulo]-'a')%('Z'-'A');
 				String[index]=String[index]+'A';
 			}
 		}
-		else if (String[index]>='a' && String[index]<='z') 
+		else if (String[index]>='a' && String[index]<='z') //encrypt small String characters
 		{
-			if(key[modulo]>='A' && key[modulo]<='Z')
+			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt big key characters
 			{
-				String[index]=(String[index]-'a'+key[modulo]-'A')%26;
+				String[index]=(String[index]-'a'+key[modulo]-'A')%('Z'-'A');
 				String[index]=String[index]+'a';
 			}
-			else
+			else //encrypt small key characters
 			{
-				String[index]=(String[index]-'a'+key[modulo]-'a')%26;
+				String[index]=(String[index]-'a'+key[modulo]-'a')%('Z'-'A');
 				String[index]=String[index]+'a';
 			}
 		}
