@@ -6,47 +6,47 @@ int main(int argc, string argv[])
 {
     if (argc !=2)
 	{
-        printf("Usage: ./asciimath key");
-        return 1;
+		printf("Usage: ./asciimath key");
+		return 1;
     }
-    string key = argv[1];
+	string key = argv[1];
 	int length = strlen(key);
-    for (int i=0; i<length; i++)
+    for (int index=0; index<length; index++)
     {
-        if (key[i]<'A' || key[i]>'z') 
+		if (key[index]<'A' || key[index]>'z') 
 		{ 
 			printf("Usage: ./asciimath key"); 
 			return 1;
 		}
     }
     string s = GetString();
-    for (int i=0, n=strlen(s); i<n; i++)
+    for (int index=0, n=strlen(s); index<n; index++)
     {
-        int o=i%length;
-        if (s[i]>='A' && s[i]<='Z') 
+        int modulo=index%length;
+        if (s[index]>='A' && s[index]<='Z') 
         {
-            if(key[o]>='A' && key[o]<='Z')
+            if(key[modulo]>='A' && key[modulo]<='Z')
             {
-                s[i]=(s[i]-65+key[o]-65)%26;
-                s[i]=(s[i]+65);
+                s[index]=(s[index]-65+key[modulo]-65)%26;
+                s[index]=s[index]+65;
             }
             else
             {
-              s[i]=(s[i]-65+key[o]-97)%26;
-              s[i]=(s[i]+65);
+              s[index]=(s[index]-65+key[modulo]-97)%26;
+              s[index]=s[index]+65;
             }
         }
-        else if (s[i]>='a' && s[i]<='z') 
+        else if (s[index]>='a' && s[index]<='z') 
         {
-            if(key[o]>='A' && key[o]<='Z')
+            if(key[modulo]>='A' && key[modulo]<='Z')
             {
-               s[i]=(s[i]-97+key[o]-65)%26;
-               s[i]=(s[i]+97);
+               s[index]=(s[index]-97+key[modulo]-65)%26;
+               s[index]=s[index]+97;
             }
             else
             {
-               s[i]=(s[i]-97+key[o]-97)%26;
-               s[i]=(s[i]+97);
+               s[index]=(s[index]-97+key[modulo]-97)%26;
+               s[index]=s[index]+97;
             }
         }
     }
