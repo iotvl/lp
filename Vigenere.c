@@ -4,11 +4,11 @@
 
 int main(int argc, string argv[])
 {
-	if (argc !=2)
+	if (argc !=2) //check if argument isn't 2
 	{
 		printf("Usage: ./asciimath key");
 		return 1;
-    }
+	}
 	string key = argv[1]; //get key
 	int keyLength = strlen(key);
 	for (int index=0; index<keyLength; index++) //validate key
@@ -25,12 +25,12 @@ int main(int argc, string argv[])
 		int modulo=index%keyLength;
 		if (String[index]>='A' && String[index]<='Z') //encrypt big String characters
 		{
-			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt big key characters
+			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt for big key characters
 			{
 				String[index]=(String[index]-'A'+key[modulo]-'A')%('Z'-'A');
 				String[index]=String[index]+'A';
 			}
-			else //encrypt small key characters
+			else //encrypt for small key characters
 			{
 				String[index]=(String[index]-'A'+key[modulo]-'a')%('Z'-'A');
 				String[index]=String[index]+'A';
@@ -38,12 +38,12 @@ int main(int argc, string argv[])
 		}
 		else if (String[index]>='a' && String[index]<='z') //encrypt small String characters
 		{
-			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt big key characters
+			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt for big key characters
 			{
 				String[index]=(String[index]-'a'+key[modulo]-'A')%('Z'-'A');
 				String[index]=String[index]+'a';
 			}
-			else //encrypt small key characters
+			else //encrypt for small key characters
 			{
 				String[index]=(String[index]-'a'+key[modulo]-'a')%('Z'-'A');
 				String[index]=String[index]+'a';
