@@ -3,6 +3,10 @@
 #include <string.h>
 
 //const
+#define BIG_A 65
+#define SMALL_A 97
+#define BIG_Z 90
+#define SMALL_Z 122
 #define LETTERS_BETWEEN_A_Z 26
 
 int main(int argc, string argv[])
@@ -26,30 +30,30 @@ int main(int argc, string argv[])
 	for (int index=0, stringLength=strlen(String); index<stringLength; index++) //encrypt characters
 	{
 		int modulo=index%keyLength;
-		if (String[index]>='A' && String[index]<='Z') //encrypt big String characters
+		if (String[index]>=BIG_A && String[index]<=BIG_Z) //encrypt big String characters
 		{
-			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt for big key characters
+			if(key[modulo]>=BIG_A && key[modulo]<=BIG_Z) //encrypt for big key characters
 			{
-				String[index]=(String[index]-'A'+key[modulo]-'A')%LETTERS_BETWEEN_A_Z;
+				String[index]=(String[index]-BIG_A+key[modulo]-BIG_A)%LETTERS_BETWEEN_A_Z;
 				String[index]=String[index]+'A';
 			}
 			else //encrypt for small key characters
 			{
-				String[index]=(String[index]-'A'+key[modulo]-'a')%LETTERS_BETWEEN_A_Z;
-				String[index]=String[index]+'A';
+				String[index]=(String[index]-BIG_A+key[modulo]-SMALL_A)%LETTERS_BETWEEN_A_Z;
+				String[index]=String[index]+BIG_A;
 			}
 		}
-		else if (String[index]>='a' && String[index]<='z') //encrypt small String characters
+		else if (String[index]>=SMALL_A && String[index]<=SMALL_Z) //encrypt small String characters
 		{
-			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt for big key characters
+			if(key[modulo]>=BIG_A && key[modulo]<=BIG_Z) //encrypt for big key characters
 			{
-				String[index]=(String[index]-'a'+key[modulo]-'A')%LETTERS_BETWEEN_A_Z;
-				String[index]=String[index]+'a';
+				String[index]=(String[index]-SMALL_A+key[modulo]-BIG_A)%LETTERS_BETWEEN_A_Z;
+				String[index]=String[index]+SMALL_A;
 			}
 			else //encrypt for small key characters
 			{
-				String[index]=(String[index]-'a'+key[modulo]-'a')%LETTERS_BETWEEN_A_Z;
-				String[index]=String[index]+'a';
+				String[index]=(String[index]-SMALL_A+key[modulo]-SMALL_A)%LETTERS_BETWEEN_A_Z;
+				String[index]=String[index]+SMALL_A;
 			}
 		}
 	}
