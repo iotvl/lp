@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 
+//const
+#define LETTERS_BETWEEN_A_Z 26
+
 int main(int argc, string argv[])
 {
 	if (argc !=2) //check if argument isn't 2
@@ -27,12 +30,12 @@ int main(int argc, string argv[])
 		{
 			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt for big key characters
 			{
-				String[index]=(String[index]-'A'+key[modulo]-'A')%('Z'-'A');
+				String[index]=(String[index]-'A'+key[modulo]-'A')%LETTERS_BETWEEN_A_Z;
 				String[index]=String[index]+'A';
 			}
 			else //encrypt for small key characters
 			{
-				String[index]=(String[index]-'A'+key[modulo]-'a')%('Z'-'A');
+				String[index]=(String[index]-'A'+key[modulo]-'a')%LETTERS_BETWEEN_A_Z;
 				String[index]=String[index]+'A';
 			}
 		}
@@ -40,12 +43,12 @@ int main(int argc, string argv[])
 		{
 			if(key[modulo]>='A' && key[modulo]<='Z') //encrypt for big key characters
 			{
-				String[index]=(String[index]-'a'+key[modulo]-'A')%('Z'-'A');
+				String[index]=(String[index]-'a'+key[modulo]-'A')%LETTERS_BETWEEN_A_Z;
 				String[index]=String[index]+'a';
 			}
 			else //encrypt for small key characters
 			{
-				String[index]=(String[index]-'a'+key[modulo]-'a')%('Z'-'A');
+				String[index]=(String[index]-'a'+key[modulo]-'a')%LETTERS_BETWEEN_A_Z;
 				String[index]=String[index]+'a';
 			}
 		}
