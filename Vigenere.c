@@ -35,7 +35,7 @@ int main(int argc, string argv[])
 			if(key[modulo]>=BIG_A && key[modulo]<=BIG_Z) //encrypt for big key characters
 			{
 				String[index]=(String[index]-BIG_A+key[modulo]-BIG_A)%LETTERS_BETWEEN_A_Z;
-				String[index]=String[index]+'A';
+				String[index]=String[index]+BIG_A;
 			}
 			else //encrypt for small key characters
 			{
